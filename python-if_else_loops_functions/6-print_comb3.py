@@ -1,10 +1,7 @@
 #!/usr/bin/python3
-for number in range(0, 99):
-    if number // 10 == number % 10:
-        continue
-    elif number // 10 == number % 10 * 10 + number // 10:
-        continue
-    elif number == 89:
-        print(f"{number:02d}")
-    else:
-        print(f"{number:02d}, ", end='')
+for f_digit in range(10):
+    for l_digit in range(f_digit + 1, 10):
+        if f_digit == 8 and l_digit == 9:
+            print(f"{f_digit}{l_digit}".format(f_digit, l_digit))
+        else:
+            print(f"{f_digit}{l_digit}, ".format(f_digit, l_digit), end="")
