@@ -4,5 +4,7 @@ for number in range(0, 99):
         continue
     elif number // 10 == number % 10 * 10 + number // 10:
         continue
-    else:
+    elif number == 89:
         print(f"{number:02d}")
+    else:
+        print(f"{number:02d}, ", end='')
