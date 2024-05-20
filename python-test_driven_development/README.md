@@ -1,11 +1,8 @@
-# Low-level programming:
-## From week 3 to week 9 at Holberton School Thonon-Les-Bains
+# Python - Test-driven development
 
-This repository contains the different projects I have made during the major part of my first trimester at **Holberton School**.
-This trimester was about learning the basics of **C**, such as *functions*, *loops*, *data structures*, and even *algorithms*.
+This repository contains the tasks I made in order to grasp the concept and the importance of testing during development.
 
-### Table of Contents:
-(Ordered according to the curriculum)
+### Task List:
 
 1. **hello_world**
    - [Repository Link](.../tree/main/hello_world)
@@ -14,85 +11,67 @@ This trimester was about learning the basics of **C**, such as *functions*, *loo
      2. **1. Hello, printf**
      3. **2. Hello, puts**
      4. **3. Hello, putchar**
-2. **variables_if_else_while**
-   - [Repository Link](.../tree/main/variables_if_else_while)
-   - Tasks:
-     1. **0. Positive anything is better than negative nothing**
-     2. **1. The last digit**
-     3. **2. I sometimes suffer from insomnia. And when I can't fall asleep, I play what I call the alphabet game**
-     4. **3. alphABET**
-3. **functions_nested_loops**
-   - [Repository Link](.../tree/main/functions_nested_loops)
-   - Tasks:
-     1. **0. _putchar**
-     2. **1. I sometimes suffer from insomnia. And when I can't fall asleep, I play what I call the alphabet game**
-     3. **2. 10 x alphabet**
-4. **more_functions_nested_loops**
-   - [Repository Link](.../tree/main/more_functions_nested_loops)
-   - Tasks:
-     1. **0. isupper**
-     2. **1. isdigit**
-     3. **2. Collaboration is multiplication**
-5. **pointers_arrays_strings**
-   - [Repository Link](.../tree/main/pointers_arrays_strings)
-   - Tasks:
-     1. **0. 98 Battery st.**
-     2. **1. Don't swap horses in crossing a stream**
-     3. **2. This report, by its very length, defends itself against the risk of being read**
-6. **recursion**
-   - [Repository Link](.../tree/main/recursion)
-   - Tasks:
-     1. **0. She locked away a secret, deep inside herself, something she once knew to be true... but chose to forget**
-     2. **1. Why is it so important to dream? Because, in my dreams we are together**
-     3. **2. Dreams feel real while we're in them. It's only when we wake up that we realize something was actually strange**
-7. **argc_argv**
-   - [Repository Link](.../tree/main/argc_argv)
-   - Tasks:
-     1. **0. It ain't what they call you, it's what you answer to**
-     2. **1. Silence is argument carried out by other means**
-     3. **2. The best argument against democracy is a five-minute conversation with the average voter**
-8. **malloc_free**
-   - [Repository Link](.../tree/main/malloc_free)
-   - Tasks:
-     1. **0. Trust no one**
-     2. **1. string_nconcat**
-     3. **2. _calloc**
-9. **more_malloc_free**
-   - [Repository Link](.../tree/main/more_malloc_free)
-   - Tasks:
-     1. **0. Trust no one**
-     2. **1. string_nconcat**
-     3. **2. _calloc**
-10. **structures_typedef**
-    - [Repository Link](.../tree/main/structures_typedef)
-    - Tasks:
-      1. **0. Poppy**
-      2. **1. A dog is the only thing on earth that loves you more than you love yourself**
-11. **function_pointers**
-    - [Repository Link](.../tree/main/function_pointers)
-    - Tasks:
-      1. **0. What's my name**
-      2. **1. If you spend too much time thinking about a thing, you'll never get it done**
-12. **variadic_functions**
-    - [Repository Link](.../tree/main/variadic_functions)
-    - Tasks:
-      1. **0. Beauty is variable, ugliness is constant**
-      2. **1. To be is to be the value of a variable**
-13. **singly_linked_lists**
-    - [Repository Link](.../tree/main/singly_linked_lists)
-    - Tasks:
-      1. **0. Print list**
-      2. **1. List length**
-      3. **2. Add node**
-14. **doubly_linked_lists**
-    - [Repository Link](.../tree/main/doubly_linked_lists)
-    - Tasks:
-      1. **0. Print list**
-      2. **1. List length**
-      3. **2. Add node**
-15. **bit_manipulation**
-    - [Repository Link](.../tree/main/bit_manipulation)
-    - Tasks:
-      1. **0. 0**
-      2. **1. 1**
-      3. **2. 10**
+
+
+0. **Integers addition**
+   -[0-add_integer.py](../tree/main/0-add_integer.py), [tests/0-add_integer.txt](../tree/main/tests/0-add_integer.txt)
+   -Tasks:
+     1. Write a function that adds 2 integers.
+     2. Prototype: def add_integer(a, b=98):
+     3. a and b must be integers or floats, otherwise raise a TypeError exception with the message a must be an integer or b must be an integer
+     4. a and b must be first casted to integers if they are float
+     5. Returns an integer: the addition of a and b
+     6. You are not allowed to import any module
+
+**1. Divide a matrix**
+   -Files
+   -Tasks:
+     1. Write a function that divides all elements of a matrix.
+     2. Prototype: def matrix_divided(matrix, div):
+     3. 'matrix' must be a list of lists of integers or floats, otherwise raise a 'TypeError' exception with the message 'matrix must be a matrix (list of lists) of integers/floats'
+     4. Each row of the matrix must be of the same size, otherwise raise a 'TypeError' exception with the message 'Each row of the matrix must have the same size'.
+     5. 'div' must be a number (integer or float), otherwise raise a 'TypeError' exception with the message 'div must be a number'.
+     6. 'div' can’t be equal to 0, otherwise raise a 'ZeroDivisionError' exception with the message 'division by zero'
+     7. All elements of the 'matrix' should be divided by 'div', rounded to 2 decimal places
+     8. Returns a new matrix
+     9. You are not allowed to import any module
+
+**2. Say my name**
+  -Files
+  -Tasks:
+     1. Write a function that prints My name is '<first name> <last name>'
+     2. Prototype: 'def say_my_name(first_name, last_name=""):'
+     3. 'first_name' and 'last_name' must be strings otherwise, raise a 'TypeError' exception with the message 'first_name must be a string or last_name must be a string'
+     4. You are not allowed to import any module
+
+**3. Print square**
+  -Files
+  -Tasks:
+     1. Write a function that prints a square with the character #.
+     2. Prototype: 'def print_square(size):'
+     3. 'size' is the size length of the square
+     4. 'size' must be an integer, otherwise raise a 'TypeError' exception with the message 'size must be an integer'
+     5. if 'size' is less than 0, raise a 'ValueError' exception with the message 'size must be >= 0'
+     6. if 'size' is a float and is less than 0, raise a 'TypeError' exception with the message 'size must be an integer'
+     7. You are not allowed to import any module
+
+**4. Text indentation**
+  -Files
+  -Tasks:
+     1. Write a function that prints a text with 2 new lines after each of these characters: ., ? and :
+     2. Prototype: def text_indentation(text):
+     3. text must be a string, otherwise raise a TypeError exception with the message text must be a string
+     4. There should be no space at the beginning or at the end of each printed line
+     5. You are not allowed to import any module
+
+**5. Max integer - Unittest**
+  -Files
+  -Tasks:
+     1. Since the beginning you have been creating “Interactive tests”. For this exercise, you will add 'Unittests'.
+     2. In this task, you will write 'unittests' for the function 'def max_integer(list=[]):'.
+     3. Your test file should be inside a folder tests
+     4. You have to use the 'unittest' module
+     5. Your test file should be python files (extension: .py)
+     6. Your test file should be executed by using this command: 'python3 -m unittest tests.6-max_integer_test'
+     7. All tests you make must be passable by the function below
+     8. We strongly encourage you to work together on test cases, so that you don’t miss any edge case
