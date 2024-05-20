@@ -4,15 +4,6 @@ This repository contains the tasks I made in order to grasp the concept and the 
 
 ### Task List:
 
-1. **hello_world**
-   - [Repository Link](.../tree/main/hello_world)
-   - Tasks:
-     1. **0. It ain't what they call you, it's what you answer to**
-     2. **1. Hello, printf**
-     3. **2. Hello, puts**
-     4. **3. Hello, putchar**
-
-
 0. **Integers addition**
    -[0-add_integer.py](../tree/main/0-add_integer.py), [tests/0-add_integer.txt](../tree/main/tests/0-add_integer.txt)
    -Tasks:
