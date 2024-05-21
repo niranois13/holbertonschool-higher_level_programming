@@ -17,7 +17,7 @@ def matrix_divided(matrix, div):
     :returns: new list of list (matrix) of int or float -
     containing the quotient of each division, rounded to 2 decimal places
     """
-    if not isinstance(matrix, list):
+    if not isinstance(matrix, list) or not all(isinstance(row, list) for row in matrix):
         raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
 
     if len({len(row) for row in matrix}) != 1:
