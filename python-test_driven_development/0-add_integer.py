@@ -3,9 +3,16 @@
 
 
 def add_integer(a, b=98):
-    """Method that adds two integers
-    Floats are accepted but casted into integers
-    Other types raise TypeError"""
+    """
+    Method that adds two integers
+    Floats are accepted but cast to integers
+
+    :param a: int or float - first number to add
+    :param b: int or float - second number to add
+
+    :raises TypeError: if a or b are anything other than int or float
+
+    :Returns: int - the sum"""
     if not isinstance(a, (int, float)):
         raise TypeError("a must be an integer")
     if not isinstance(b, (int, float)):
