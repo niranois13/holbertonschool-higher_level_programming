@@ -24,5 +24,6 @@ def text_indentation(text):
                 i += 1
             continue
         i += 1
-
-    print("{}".format(result))
+        
+    to_print = result.rstrip()
+    print("{}".format(to_print))
