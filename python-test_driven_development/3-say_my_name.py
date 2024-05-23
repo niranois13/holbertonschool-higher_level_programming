@@ -9,7 +9,7 @@ def say_my_name(first_name, last_name=""):
     :param first_name: str - The first name to print
     :param last_name: str - The last name to print
     :raises Typerror: if first name or last name are not strings
-    :Returns: nothing
+    :Returns: None
     """
 
     if not isinstance(first_name, str):
