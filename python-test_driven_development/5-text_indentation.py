@@ -4,12 +4,13 @@
 
 def text_indentation(text):
     """
-    Method that indent a text by adding two newlines after those specific characters: '.', '?' and ':'
+    Method that indent a text by adding two newlines after those
+    specific characters: '.', '?' and ':'
     :param text: str - the given text to properly indent
     :raises TypeError: if str is not a string
     :Returns: None
     """
-    if not isinstance (text, str):
+    if not isinstance(text, str):
         raise TypeError("text must be a string")
 
     result = ""
