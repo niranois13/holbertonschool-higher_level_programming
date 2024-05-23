@@ -1,0 +1,83 @@
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+# Test case with multiple punctuation marks
+>>> text_indentation("Hello? Are you there. Yes: I am here.")
+Hello?
+<BLANKLINE>
+Are you there.
+<BLANKLINE>
+Yes:
+<BLANKLINE>
+I am here.
+<BLANKLINE>
+<BLANKLINE>
+
+# Test case with spaces after punctuation marks
+>>> text_indentation("Hello?  Are you there.  Yes:  I am here.")
+Hello?
+<BLANKLINE>
+Are you there.
+<BLANKLINE>
+Yes:
+<BLANKLINE>
+I am here.
+<BLANKLINE>
+<BLANKLINE>
+
+# Test case with no punctuation marks
+>>> text_indentation("Hello there")
+Hello there
+
+# Test case with punctuation marks at the end
+>>> text_indentation("Is this working?")
+Is this working?
+<BLANKLINE>
+<BLANKLINE>
+
+# Test case with consecutive punctuation marks
+>>> text_indentation("Wait... What?? Really:")
+Wait.
+<BLANKLINE>
+.
+<BLANKLINE>
+.
+<BLANKLINE>
+What?
+<BLANKLINE>
+?
+<BLANKLINE>
+Really:
+<BLANKLINE>
+<BLANKLINE>
+
+# Test case with only punctuation marks
+>>> text_indentation(".?::")
+.
+<BLANKLINE>
+?
+<BLANKLINE>
+:
+<BLANKLINE>
+:
+<BLANKLINE>
+<BLANKLINE>
+
+# Test case with empty string
+>>> text_indentation("")
+<BLANKLINE>
+
+# Test cases for non-string inputs (should raise TypeError)
+>>> text_indentation(123)
+Traceback (most recent call last):
+    ...
+TypeError: text must be a string
+
+>>> text_indentation(None)
+Traceback (most recent call last):
+    ...
+TypeError: text must be a string
+
+>>> text_indentation(["Hello", "world"])
+Traceback (most recent call last):
+    ...
+TypeError: text must be a string
