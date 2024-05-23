@@ -1,0 +1,43 @@
+>>> say_my_name = __import__('3-say_my_name').say_my_name
+
+# Test cases for valid inputs
+>>> say_my_name("John", "Doe")
+My name is John Doe
+>>> say_my_name("Alice")
+My name is Alice 
+>>> say_my_name("Bob", "")
+My name is Bob 
+
+# Test cases for inputs with leading/trailing spaces
+>>> say_my_name("  John", "Doe  ")
+My name is   John Doe  
+>>> say_my_name("Alice  ")
+My name is Alice   
+
+# Test cases for non-string first name (should raise TypeError)
+>>> say_my_name(123, "Doe")
+Traceback (most recent call last):
+    ...
+TypeError: first_name must be a string
+>>> say_my_name(None, "Doe")
+Traceback (most recent call last):
+    ...
+TypeError: first_name must be a string
+>>> say_my_name(["John"], "Doe")
+Traceback (most recent call last):
+    ...
+TypeError: first_name must be a string
+
+# Test cases for non-string last name (should raise TypeError)
+>>> say_my_name("John", 123)
+Traceback (most recent call last):
+    ...
+TypeError: last_name must be a string
+>>> say_my_name("John", None)
+Traceback (most recent call last):
+    ...
+TypeError: last_name must be a string
+>>> say_my_name("John", ["Doe"])
+Traceback (most recent call last):
+    ...
+TypeError: last_name must be a string
