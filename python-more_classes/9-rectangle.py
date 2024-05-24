@@ -16,9 +16,6 @@ class Rectangle:
     @classmethod
     def square(cls, size=0):
         """Returns a new Rectangle instance with width == height == size"""
-        if size < 0:
-            del cls
-            raise ValueError("width must be >= 0")
         return cls(size, size)
 
     @property
@@ -59,6 +56,7 @@ class Rectangle:
             return 0
         return (2 * self.__width) + (2 * self.__height)
 
+    @staticmethod
     def bigger_or_equal(rect_1, rect_2):
         """Returns the biggest Rectangle (based on area)"""
         if not isinstance(rect_1, Rectangle):
