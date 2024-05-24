@@ -13,11 +13,6 @@ class Rectangle:
         self.__width = width
         Rectangle.number_of_instances += 1
 
-    @classmethod
-    def square(cls, size=0):
-        """Returns a new Rectangle instance with width == height == size"""
-        return cls(size, size)
-
     @property
     def width(self):
         """Getter method for width"""
@@ -45,6 +40,11 @@ class Rectangle:
         if value < 0:
             raise ValueError("height must be >= 0")
         self.__height = value
+
+    @classmethod
+    def square(cls, size=0):
+        """Returns a new Rectangle instance with width == height == size"""
+        return cls(size, size)
 
     def area(self):
         """Returns the area of Rectangle"""
