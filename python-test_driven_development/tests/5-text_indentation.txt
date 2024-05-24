@@ -59,6 +59,7 @@ Really:
 
 # Test case with empty string
 >>> text_indentation("")
+<BLANKLINE>
 
 # Test cases for non-string inputs (should raise TypeError)
 >>> text_indentation(123)
