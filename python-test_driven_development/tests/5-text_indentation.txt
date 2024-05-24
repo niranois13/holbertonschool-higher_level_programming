@@ -10,7 +10,6 @@ Yes:
 <BLANKLINE>
 I am here.
 <BLANKLINE>
-<BLANKLINE>
 
 # Test case with spaces after punctuation marks
 >>> text_indentation("Hello?  Are you there.  Yes:  I am here.")
@@ -22,7 +21,6 @@ Yes:
 <BLANKLINE>
 I am here.
 <BLANKLINE>
-<BLANKLINE>
 
 # Test case with no punctuation marks
 >>> text_indentation("Hello there")
@@ -31,7 +29,6 @@ Hello there
 # Test case with punctuation marks at the end
 >>> text_indentation("Is this working?")
 Is this working?
-<BLANKLINE>
 <BLANKLINE>
 
 # Test case with consecutive punctuation marks
@@ -48,7 +45,6 @@ What?
 <BLANKLINE>
 Really:
 <BLANKLINE>
-<BLANKLINE>
 
 # Test case with only punctuation marks
 >>> text_indentation(".?::")
@@ -59,7 +55,6 @@ Really:
 :
 <BLANKLINE>
 :
-<BLANKLINE>
 <BLANKLINE>
 
 # Test case with empty string
