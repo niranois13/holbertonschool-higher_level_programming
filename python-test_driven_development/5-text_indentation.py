@@ -25,4 +25,4 @@ def text_indentation(text):
             continue
         i += 1
 
-    print("{}".format(result))
+    print("{}".format(result), end='')
