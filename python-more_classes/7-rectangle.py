@@ -5,6 +5,7 @@
 class Rectangle:
     """definition of the class Rectangle"""
     number_of_instances = 0
+    print_symbol = '#'
 
     def __init__(self, width=0, height=0):
         """Initializes the height and width of the Rectangle"""
@@ -57,7 +58,7 @@ class Rectangle:
         rectangle = []
         for j in range(self.__height):
             for i in range(self.__width):
-                rectangle.append("#")
+                rectangle.append(str(self.print_symbol))
             rectangle.append("\n")
         if rectangle:
             rectangle.pop()
