@@ -1,4 +1,4 @@
->>> MyList = __import__('your_module_name').MyList
+>>> MyList = __import__('1-my_list').MyList
 
 # Test cases for an empty list
 >>> my_list = MyList()
