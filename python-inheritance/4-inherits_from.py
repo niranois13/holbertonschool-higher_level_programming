@@ -12,4 +12,4 @@ def inherits_from(obj, a_class):
 
     :Returns: True if obj is inherited from a_class, False otherwise.
     """
-    return True if type(obj) is not a_class and isinstance(obj, a_class) else False
+    return type(obj) is not a_class and isinstance(obj, a_class)
