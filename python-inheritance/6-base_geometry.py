@@ -3,7 +3,7 @@
 
 
 class BaseGeometry:
-    """An emmpty class BaseGeometry"""
+    """Defines the class BaseGeometry"""
 
     def area(self):
         """Method not implemented yet"""

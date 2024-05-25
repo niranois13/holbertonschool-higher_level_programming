@@ -1,0 +1,57 @@
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+# Create an instance of BaseGeometry
+>>> bg = BaseGeometry()
+
+# Test case for area() method (should raise Exception)
+>>> bg.area()
+Traceback (most recent call last):
+    ...
+Exception: area() is not implemented
+
+# Test cases for integer_validator method with valid integers
+>>> bg.integer_validator("age", 10)  # Should not raise any exceptions
+>>> bg.integer_validator("count", 1)  # Should not raise any exceptions
+
+# Test cases for integer_validator method with non-integer values (should raise TypeError)
+>>> bg.integer_validator("age", 10.5)
+Traceback (most recent call last):
+    ...
+TypeError: age must be an integer
+
+>>> bg.integer_validator("count", "5")
+Traceback (most recent call last):
+    ...
+TypeError: count must be an integer
+
+>>> bg.integer_validator("value", [1])
+Traceback (most recent call last):
+    ...
+TypeError: value must be an integer
+
+>>> bg.integer_validator("number", None)
+Traceback (most recent call last):
+    ...
+TypeError: number must be an integer
+
+# Test cases for integer_validator method with non-positive integers (should raise ValueError)
+>>> bg.integer_validator("age", 0)
+Traceback (most recent call last):
+    ...
+ValueError: age must be greater than 0
+
+>>> bg.integer_validator("count", -3)
+Traceback (most recent call last):
+    ...
+ValueError: count must be greater than 0
+
+# Test cases for missing arguments (should raise TypeError for missing positional arguments)
+>>> bg.integer_validator("age")
+Traceback (most recent call last):
+    ...
+TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+>>> bg.integer_validator()
+Traceback (most recent call last):
+    ...
+TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
