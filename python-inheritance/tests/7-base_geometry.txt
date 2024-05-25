@@ -1,4 +1,4 @@
->>> BaseGeometry = __import__('your_module_name').BaseGeometry
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
 # Create an instance of BaseGeometry
 >>> bg = BaseGeometry()
