@@ -9,4 +9,4 @@ def is_same_class(obj, a_class):
     :param a_class: the class to compare with
     :Returns: True if obj is same class, False otherwise
     """
-    return True if type(obj) == a_class else False
+    return isinstance(obj, a_class)
