@@ -1,4 +1,4 @@
->>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+>>> BaseGeometry = __import__('your_module_name').BaseGeometry
 
 # Create an instance of BaseGeometry
 >>> bg = BaseGeometry()
@@ -33,6 +33,26 @@ TypeError: value must be an integer
 Traceback (most recent call last):
     ...
 TypeError: number must be an integer
+
+>>> bg.integer_validator("items", {1, 2, 3})
+Traceback (most recent call last):
+    ...
+TypeError: items must be an integer
+
+>>> bg.integer_validator("coords", (1, 2))
+Traceback (most recent call last):
+    ...
+TypeError: coords must be an integer
+
+>>> bg.integer_validator("flag", True)
+Traceback (most recent call last):
+    ...
+TypeError: flag must be an integer
+
+>>> bg.integer_validator("flag", False)
+Traceback (most recent call last):
+    ...
+TypeError: flag must be an integer
 
 # Test cases for integer_validator method with non-positive integers (should raise ValueError)
 >>> bg.integer_validator("age", 0)
