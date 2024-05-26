@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Module compiled with Python3"""
 
+
 from abc import ABC, abstractmethod
 
 class Animal(ABC):
