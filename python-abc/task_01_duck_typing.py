@@ -27,10 +27,6 @@ class Circle(Shape):
         Initializes the subclass Circle with a radius
         :param radius: int or float - the radius of Cercle"""
         super().__init__()
-        if not isinstance(radius, (int, float)):
-            raise TypeError("radius must be an integer")
-        if radius <= 0:
-            raise ValueError("radius must be positive")
         self.radius = radius
 
     def area(self):
@@ -52,15 +48,7 @@ class Rectangle(Shape):
         :param hight: int or float - the hight of Rectangle
         """
         super().__init__()
-        if not isinstance(width, (int, float)):
-            raise TypeError("width must be an integer")
-        if width <= 0:
-            raise ValueError("width must be positive")
         self.width = width
-        if not isinstance(height, (int, float)):
-            raise TypeError("height must be an integer")
-        if height <= 0:
-            raise ValueError("height must be positive")
         self.height = height
 
     def area(self):
