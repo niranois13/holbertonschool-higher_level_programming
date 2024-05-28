@@ -13,7 +13,7 @@ class Student:
 
     def to_json(self, attrs=None):
         """Method that retrieves a dict representation of a Student instance"""
-        if not type(attrs) == list:
+        if type(attrs) is not list:
             return {}
 
         json_dict = {}
