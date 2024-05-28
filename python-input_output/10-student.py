@@ -13,11 +13,13 @@ class Student:
 
     def to_json(self, attrs=None):
         """Method that retrieves a dict representation of a Student instance"""
+        if attrs is None:
+            return self.__dict__
+
         if not isinstance(attrs, list):
             return {}
 
         json_dict = {}
-
         for item in attrs:
             if not isinstance(item, str):
                 return {}
