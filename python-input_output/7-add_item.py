@@ -16,4 +16,3 @@ except FileNotFoundError:
 append_list = sys.argv[1:]
 json_list.extend(append_list)
 save_to_json_file(json_list, filename)
-
