@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """Module compiled with Python3"""
-import json
 
 
 def class_to_json(obj):
