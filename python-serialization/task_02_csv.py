@@ -6,15 +6,18 @@ import json
 
 def convert_csv_to_json(csv_file, json_file):
     """Function that converts a csv file to json_file"""
-    data = {}
+    try:
+        data = {}
+        with open(csv_file, encoding="UTF-8") as csvf:
+            csvReader = csv.DictReader(csvf)
+            i = 0
+            for rows in csvReader:
+                key = rows[i]
+                data[key] = rows
+                i += 1
+        with open(json_file, 'w', encoding="UTF-8") as jsonf:
+            jsonf.write(json.dump(data))
+        return True
+    except Exception:
+        return False
 
-    with open(csv_file, encoding="UTF-8") as csvf:
-        csvReader = csv.DictReader(csvf)
-        i = 0
-        for rows in csvReader:
-            key = rows[i]
-            data[key] = rows
-            i += 1
-
-    with open(json_file, 'w', encoding="UTF-8") as jsonf:
-        jsonf.write(json.dump(data))
