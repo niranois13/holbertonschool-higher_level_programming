@@ -5,7 +5,7 @@ import pickle
 
 class CustomObject:
     """Defines a class CustomObject that serializes and
-    deserializes custom Pyhton objects with the pickel module.
+    deserializes custom Python objects with the pickle module.
     It also displays stuff"""
 
     def __init__(self, name, age, is_student):
@@ -14,7 +14,7 @@ class CustomObject:
         self.is_student = is_student
 
     def display(self):
-        """Method that displays the Python and pickle files"""
+        """Method that displays the CustomObject data"""
         print("Name: {}".format(self.name))
         print("Age: {}".format(self.age))
         print("Is Student: {}".format(self.is_student))
@@ -28,4 +28,4 @@ class CustomObject:
     def deserialize(cls, filename):
         """Method that deserializes a pickle file"""
         with open(filename, 'rb') as file:
-            pickle.load(file)
+            return pickle.load(file)
