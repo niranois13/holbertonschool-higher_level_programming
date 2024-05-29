@@ -4,7 +4,7 @@ import csv
 import json
 
 
-def convert_csv_to_json(csv_file , json_file):
+def convert_csv_to_json(csv_file, json_file):
     """Function that converts a csv file to json_file"""
     data = {}
 
@@ -18,6 +18,3 @@ def convert_csv_to_json(csv_file , json_file):
 
     with open(json_file, 'w', encoding="UTF-8") as jsonf:
         jsonf.write(json.dump(data))
-
-        
-
