@@ -24,8 +24,8 @@ class CustomObject:
         try:
             with open(filename, 'wb') as file:
                 pickle.dump(self, file)
-        except Exception as e:
-            raise Exception(e)
+        except Exception:
+            return None
 
     @classmethod
     def deserialize(cls, filename):
@@ -33,5 +33,5 @@ class CustomObject:
         try:
             with open(filename, 'rb') as file:
                 return pickle.load(file)
-        except Exception as e:
-            raise Exception(e)
+        except Exception:
+            return None
