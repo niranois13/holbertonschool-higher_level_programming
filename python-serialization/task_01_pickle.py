@@ -13,6 +13,12 @@ class CustomObject:
         self.age = age
         self.is_student = is_student
 
+    def display(self):
+        """Method that displays the Python and pickle files"""
+        print("Name: {}".format(self.name))
+        print("Age: {}".format(self.age))
+        print("Is Student: {}".format(self.is_student))
+
     def serialize(self, filename):
         """Method that serializes a custom Python object"""
         with open(filename, 'wb') as file:
@@ -23,9 +29,3 @@ class CustomObject:
         """Method that deserializes a pickle file"""
         with open(filename, 'rb') as file:
             pickle.load(file)
-
-    def display(self):
-        """Method that displays the Python and pickle files"""
-        print("Name: {}".format(self.name))
-        print("Age: {}".format(self.age))
-        print("Is Student: {}".format(self.is_student))
