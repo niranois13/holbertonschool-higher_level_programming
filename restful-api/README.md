@@ -32,7 +32,9 @@ There are a few steps:
 - **HEAD**: Similar to GET, but the server only returns the headers of the response without the actual body content.
 
 ## 5. How to make HTTP requests using cURL?
-// curl [option] [URL]
+```
+curl [option] [URL]
+```
 (See `man curl` for more info)
 
 ## 6. What's the use for APIs in software development?
@@ -60,19 +62,20 @@ In conclusion, the choice between REST and SOAP APIs depends on factors such as 
 An authentication token (auth token) is a piece of data that is used to authenticate and authorize a user or application when making requests to an API. It serves as a means of proving the identity of the requester and granting access to the API's resources. Auth tokens are commonly used in APIs to manage user sessions and ensure secure communication.
 
 ## 9. How would you handle errors in an API response?
-Handling errors in an API response involves returning appropriate HTTP status codes and meaningful error messages to the client. This helps the client understand what went wrong and how to possibly fix it.
-For example:
-// curl -X GET https://api.example.com/protected/resource
+Handling errors in an API response involves returning appropriate HTTP status codes and meaningful error messages to the client. This helps the client understand what went wrong and how to possibly fix it.  
+For example:  
+```
+curl -X GET https://api.example.com/protected/resource
 
-// HTTP/1.1 401 Unauthorized
-// Content-Type: application/json
-// {
-//    "error": {
-//        "code": 401,
-//        "message": "Unauthorized access. Please provide a valid authentication token."
-//    }
-// }
-
+HTTP/1.1 401 Unauthorized
+Content-Type: application/json
+{
+   "error": {
+       "code": 401,
+       "message": "Unauthorized access. Please provide a valid authentication token."
+   }
+}
+```
 ## 10. What is the format JSON and why is it often used with APIs?
 
 JSON, or JavaScript Object Notation, is a lightweight data-interchange format that's easy for humans to read and write and easy for machines to parse and generate. It uses a text format that is completely language-independent but uses conventions that are familiar to programmers of the C-family of languages. JSON's simplicity, readability, and wide support make it an excellent choice for transmitting data between clients and servers in web APIs.
