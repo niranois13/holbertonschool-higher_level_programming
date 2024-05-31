@@ -31,7 +31,3 @@ def fetch_and_save_posts():
             csv_writer.writeheader()
             for post in posts:
                 csv_writer.writerow({'id': post['id'], 'title': post['title'], 'body': post['body']})
-
-if __name__ == "__main__":
-    fetch_and_print_posts()
-    fetch_and_save_posts()
