@@ -25,14 +25,13 @@ def fetch_and_save_posts():
     if r.status_code == 200:
         posts = r.json()
 
-        jsonFile = []
-        for post in posts:
-            post_dicts = {
-                'id': post['id'],
-                'title': post['title'],
-                'body': post['body']
-            }
-            jsonFile.append(post_dicts)
+        post_dicts = [
+            {
+            'id': post['id'],
+            'title': post['title'],
+            'body': post['body']
+            } for post in posts
+        ]
 
         csv_file_path = 'posts.csv'
         with open(csv_file_path, 'w', newline='') as csv_file:
@@ -41,3 +40,7 @@ def fetch_and_save_posts():
             csv_writer.writeheader()
             for post_dict in post_dicts:
                 csv_writer.writerow(post_dict)
+
+if __name__ == "__main__":
+    fetch_and_print_posts()
+    fetch_and_save_posts()
