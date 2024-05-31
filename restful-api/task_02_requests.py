@@ -26,11 +26,11 @@ def fetch_and_save_posts():
         posts = r.json()
         csv_file_path = 'posts.csv'
         with open(csv_file_path, 'w', newline='') as csv_file:
-            csv_writer = csv.writer(csv_file)
-            header = ['id', 'title', 'body']
-            csv_writer.writerow(header)
+            fieldnames = ['id', 'title', 'body']
+            csv_writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
+            csv_writer.writeheader()
             for post in posts:
-                csv_writer.writerow([post['id'], post['title'], post['body']])
+                csv_writer.writerow({'id': post['id'], 'title': post['title'], 'body': post['body']})
 
 if __name__ == "__main__":
     fetch_and_print_posts()
