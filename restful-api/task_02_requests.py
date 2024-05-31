@@ -11,7 +11,7 @@ def fetch_and_print_posts():
     """
     r = requests.get('https://jsonplaceholder.typicode.com/posts')
     print("Status code: {}".format(r.status_code))
-    if 200 <= r.status_code <= 299:
+    if r.status_code == 200:
         posts = r.json()
         for post in posts:
             print(post['title'])
@@ -22,7 +22,7 @@ def fetch_and_save_posts():
     Function that converts API posts data into a csv file
     """
     r = requests.get('https://jsonplaceholder.typicode.com/posts')
-    if 200 <= r.status_code <= 299:
+    if r.status_code == 200:
         posts = r.json()
         csv_file_path = 'posts.csv'
         with open(csv_file_path, 'w', newline='') as csv_file:
