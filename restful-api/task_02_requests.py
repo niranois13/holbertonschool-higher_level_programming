@@ -29,7 +29,7 @@ def fetch_and_save_posts(posts):
             'title': post['title'],
             'body': post['body']
         }
-    jsonFile.append(post_dict)
+        jsonFile.append(post_dict)
 
     with open('posts.json', 'w', encoding='UTF-8') as jsonf:
         json.dump(jsonFile, jsonf)
