@@ -33,7 +33,7 @@ def users_data(username):
     username = escape(username)
     user_data = users.get(username)
     if not user_data:
-        return {"error": "User not found"}
+        return jsonify({"error": "User not found"})
     else:
         return jsonify(user_data)
 
