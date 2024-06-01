@@ -5,8 +5,8 @@ from markupsafe import escape
 
 app = Flask(__name__)
 users = {
-        "jane": {"name": "Jane", "age": 28, "city": "Los Angeles"},
-        "noah": {"name": "Noah", "age": 7, "city": "Thonon-les-Bains"}
+        "jane": {"username": "jane", "name": "Jane", "age": 28, "city": "Los Angeles"},
+        "john": {"username": "john", "name": "John", "age": 30, "city": "New York"}
     }
 
 
@@ -28,13 +28,22 @@ def users_data(username):
     if not user_data:
         return {"error": "User not found"}
     else:
-        return jsonify({username: user_data})
+        return jsonify(user_data)
 
 
-@app.post('/users')
+@app.post('/add_users')
 def add_users():
+    if not request.is_json:
+        return jsonify({"error": "Request must be JSON"})
+
     new_user = request.get_json()
     username = new_user.get("username")
+
+    if not username:
+        return jsonify({"error": "Username is required"})
+    if username in users:
+        return jsonify({"error": "User already exists"})
+
     users[username] = {
         "name": new_user.get("name", ""),
         "age": new_user.get("age", ""),
