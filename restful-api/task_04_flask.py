@@ -16,7 +16,8 @@ def home():
 
 @app.route('/data')
 def data():
-    return jsonify(users)
+    users_keys = list(users.keys())
+    return jsonify(users_keys)
 
 @app.route('/users/<username>')
 def users_data(username):
@@ -42,7 +43,6 @@ def add_users():
 @app.route('/status')
 def status():
     return "OK"
-
 
 
 if __name__ == "__main__":
