@@ -6,12 +6,12 @@ import json
 
 class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
     """Defines the subclass SimpleHTTPRequestHandler,
-    that heritates from BaseHTTPRequestHandler"""
+    that inherites from BaseHTTPRequestHandler"""
     def do_GET(self):
         """Method that override the GET method, handles various endpoints"""
         if self.path == '/':
             self.send_response(200)
-            self.send_header('content-type', 'text/html')
+            self.send_header('content-type', 'text/plain')
             self.end_headers()
             self.wfile.write(b'Hello, this is a simple API!')
         elif self.path == '/data':
@@ -36,7 +36,7 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
             self.send_response(404)
             self.send_header('content-type', 'text/plain')
             self.end_headers()
-            self.wfile.write(b'Endpoint not found')
+            self.wfile.write(b'404 Not Found')
 
 
 if __name__ == "__main__":
