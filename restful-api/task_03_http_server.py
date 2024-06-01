@@ -39,6 +39,7 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
             self.wfile.write(b'Endpoint not found')
 
 
-httpd = HTTPServer(('', 8000), SimpleHTTPRequestHandler)
-print("serving at port", 8000)
-httpd.serve_forever()
+if __name__ == "__main__":
+    httpd = HTTPServer(('', 8000), SimpleHTTPRequestHandler)
+    print("serving at port", 8000)
+    httpd.serve_forever()
