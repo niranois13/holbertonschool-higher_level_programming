@@ -12,17 +12,22 @@ users = {
 
 @app.route('/')
 def home():
+    """Function that handles index"""
     return "Welcome to the Flask API!"
 
 
 @app.route('/data')
 def data():
+    """
+    Function that converts in JSON and returns the keys of the users dictionary
+    """
     users_keys = list(users.keys())
     return jsonify(users_keys)
 
 
 @app.route('/users/<username>')
 def users_data(username):
+    """Function that handles the users data"""
     username = escape(username)
     user_data = users.get(username)
     if not user_data:
@@ -33,6 +38,7 @@ def users_data(username):
 
 @app.post('/add_users')
 def add_users():
+    """Function that allows the addition of new users"""
     if not request.is_json:
         return jsonify({"error": "Request must be JSON"})
 
@@ -54,6 +60,7 @@ def add_users():
 
 @app.route('/status')
 def status():
+    """Returns the status of the server"""
     return "OK"
 
 
