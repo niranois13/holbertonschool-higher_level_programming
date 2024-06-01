@@ -38,7 +38,7 @@ def users_data(username):
         return jsonify(user_data)
 
 
-@app.post('/add_users')
+@app.route('/add_users', methods=['POST'])
 def add_users():
     """Function that allows the addition of new users"""
     if not request.is_json:
