@@ -14,10 +14,12 @@ users = {
 def home():
     return "Welcome to the Flask API!"
 
+
 @app.route('/data')
 def data():
     users_keys = list(users.keys())
     return jsonify(users_keys)
+
 
 @app.route('/users/<username>')
 def users_data(username):
@@ -27,6 +29,7 @@ def users_data(username):
         return {"error": "User not found"}
     else:
         return jsonify({username: user_data})
+
 
 @app.post('/users')
 def add_users():
