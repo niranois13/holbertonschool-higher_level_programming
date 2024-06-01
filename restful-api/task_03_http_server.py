@@ -11,6 +11,7 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
         """Method that override the GET method, handles various endpoints"""
         if self.path == '/':
             self.send_response(200)
+            self.send_header('content-type', 'text/html')
             self.end_headers()
             self.wfile.write(b'Hello, this is a simple API!')
         elif self.path == '/data':
@@ -21,6 +22,7 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
             self.wfile.write(json.dumps(dataset).encode('UTF-8'))
         elif self.path == '/status':
             self.send_response(200)
+            self.send_header('content-type', 'text/html')
             self.end_headers()
             self.wfile.write(b'OK')
         elif self.path == '/info':
@@ -32,6 +34,7 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
             self.wfile.write(json.dumps(info).encode('UTF-8'))
         else:
             self.send_response(404, '404 Not found')
+            self.send_header('content-type', 'text/html')
             self.end_headers()
             self.wfile.write(b'Endpoint not found')
 
