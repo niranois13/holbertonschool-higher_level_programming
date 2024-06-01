@@ -31,9 +31,9 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
                     "A simple API built with http.server"}
             self.wfile.write(json.dumps(info).encode('UTF-8'))
         else:
-            self.send_response(404)
+            self.send_response(404, '404 Not found')
             self.end_headers()
-            self.wfile.write(b'404 - Not Found')
+            self.wfile.write(b'Endpoint not found')
 
 
 httpd = HTTPServer(('', 8000), SimpleHTTPRequestHandler)
