@@ -22,7 +22,7 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
             self.wfile.write(json.dumps(dataset).encode('UTF-8'))
         elif self.path == '/status':
             self.send_response(200)
-            self.send_header('content-type', 'text/html')
+            self.send_header('content-type', 'text/plain')
             self.end_headers()
             self.wfile.write(b'OK')
         elif self.path == '/info':
@@ -33,8 +33,8 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
                     "A simple API built with http.server"}
             self.wfile.write(json.dumps(info).encode('UTF-8'))
         else:
-            self.send_response(404, '404 Not found')
-            self.send_header('content-type', 'text/html')
+            self.send_response(404)
+            self.send_header('content-type', 'text/plain')
             self.end_headers()
             self.wfile.write(b'Endpoint not found')
 
