@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """Module compiled with Python3"""
 from flask import Flask, jsonify, request
-from markupsafe import escape
 
 app = Flask(__name__)
 users = {}
@@ -25,7 +24,6 @@ def data():
 @app.route('/users/<username>')
 def users_data(username):
     """Function that handles the users data"""
-    username = escape(username)
     user_data = users.get(username)
     if not user_data:
         return jsonify({"error": "User not found"})
@@ -53,7 +51,7 @@ def add_users():
         "age": new_user.get("age", ""),
         "city": new_user.get("city", "")
     }
-    return jsonify({"message": "User added", "user": new_user})
+    return jsonify({"message": "User added", "user": users[username]})
 
 
 @app.route('/status')
