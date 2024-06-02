@@ -4,7 +4,7 @@ from flask import Flask, jsonify, request
 from markupsafe import escape
 
 app = Flask(__name__)
-users = {}
+users = []
 
 
 @app.route('/')
