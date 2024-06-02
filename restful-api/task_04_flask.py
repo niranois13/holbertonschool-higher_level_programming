@@ -24,7 +24,7 @@ def data():
 
 
 @app.route('/users/<username>')
-def users_data(username):
+def user_data(username):
     """Function that handles the users data"""
     user_data = users.get(username)
     if not user_data:
@@ -34,19 +34,12 @@ def users_data(username):
 
 
 @app.route('/add_user', methods=['POST'])
-def add_users():
+def add_user():
     """Function that allows the addition of new users"""
-    if not request.is_json:
-        return jsonify({"error": "Request must be JSON"}), 400
-
     new_user = request.get_json()
     username = new_user.get("username")
-
     if not username:
         return jsonify({"error": "Username is required"}), 400
-    if username in users:
-        return jsonify({"error": "User already exists"}), 400
-
     users[username] = new_user
     return jsonify({"message": "User added", "user": new_user}), 201
 
