@@ -2,7 +2,9 @@
 """Module compiled with Python3"""
 from flask import Flask, jsonify, request
 
+
 app = Flask(__name__)
+
 users = {}
 
 
@@ -18,7 +20,7 @@ def data():
     Function that converts in JSON and returns the keys of the users dictionary
     """
     users_keys = list(users.keys())
-    return jsonify(users_keys), 200
+    return jsonify(users_keys)
 
 
 @app.route('/users/<username>')
@@ -28,7 +30,7 @@ def users_data(username):
     if not user_data:
         return jsonify({"error": "User not found"}), 404
     else:
-        return jsonify(user_data), 200
+        return jsonify(user_data)
 
 
 @app.route('/add_user', methods=['POST'])
@@ -57,7 +59,7 @@ def add_users():
 @app.route('/status')
 def status():
     """Returns the status of the server"""
-    return "OK", 200
+    return "OK"
 
 
 if __name__ == "__main__":
