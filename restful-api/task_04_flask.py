@@ -26,7 +26,7 @@ def users_data(username):
     """Function that handles the users data"""
     user_data = users.get(username)
     if not user_data:
-        return jsonify({"error": "User not found"}), 400
+        return jsonify({"error": "User not found"}), 404
     else:
         return jsonify(user_data), 200
 
@@ -51,7 +51,7 @@ def add_users():
         "age": new_user.get("age", ""),
         "city": new_user.get("city", "")
     }
-    return jsonify({"message": "User added", "user": users[username]}), 200
+    return jsonify({"message": "User added", "user": users[username]}), 201
 
 
 @app.route('/status')
