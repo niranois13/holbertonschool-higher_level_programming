@@ -4,7 +4,12 @@ from flask import Flask, jsonify, request
 from markupsafe import escape
 
 app = Flask(__name__)
-users = []
+users = {
+        "jane":
+        {"username": "jane", "name": "Jane", "age": 28, "city": "Los Angeles"},
+        "john":
+        {"username": "john", "name": "John", "age": 30, "city": "New York"}
+    }
 
 
 @app.route('/')
@@ -28,7 +33,7 @@ def users_data(username):
     username = escape(username)
     user_data = users.get(username)
     if not user_data:
-        return jsonify({"error": "User not found"})
+        return "error": "User not found"
     else:
         return jsonify(user_data)
 
@@ -37,15 +42,15 @@ def users_data(username):
 def add_users():
     """Function that allows the addition of new users"""
     if not request.is_json:
-        return jsonify({"error": "Request must be JSON"})
+        return ("error": "Request must be JSON")
 
     new_user = request.get_json()
     username = new_user.get("username")
 
     if not username:
-        return jsonify({"error": "Username is required"})
+        return ("error": "Username is required")
     if username in users:
-        return jsonify({"error": "User already exists"})
+        return ("error": "User already exists")
 
     users[username] = {
         "name": new_user.get("name", ""),
