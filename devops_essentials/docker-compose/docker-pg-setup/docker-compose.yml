@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: exampleuser
+      POSTGRES_PASSWORD: examplepassword
+      POSTGRES_DB: exampledb
+    networks:
+      - private_network
+
+  admin:
+    image: dpage/pgadmin4:latest
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@example.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+      PGADMIN_LISTEN_PORT: 5432 
+      PGADMIN_DEFAULT_SERVER: db
+    networks:
+      - private_network
+    depends_on:
+      - db
+    ports:
+      - "5432:5432"
+
+networks:
+  private_network:
+    driver: bridge
