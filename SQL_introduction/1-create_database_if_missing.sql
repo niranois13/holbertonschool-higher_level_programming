@@ -1,4 +1,4 @@
 -- create a database
 
---whopsie
+-- whopsie
 CREATE DATABASE hbtn_0c_0;
