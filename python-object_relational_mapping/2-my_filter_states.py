@@ -13,13 +13,14 @@ def main():
     MY_USER = sys.argv[1]
     MY_PASS = sys.argv[2]
     MY_DB = sys.argv[3]
+    MY_SEARCH = sys.argv[4]
 
     db = MySQLdb.connect(host='localhost', port=3306, user=MY_USER,
                          passwd=MY_PASS, db=MY_DB)
     cur = db.cursor()
 
     cur.execute("SELECT * FROM states \
-                WHERE name LIKE BINARY 'N%' ORDER BY id ASC")
+                WHERE name = '{}' ORDER BY id ASC".format(MY_SEARCH))
     rows = cur.fetchall()
     for row in rows:
         print(row)
