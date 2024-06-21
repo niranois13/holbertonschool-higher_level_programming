@@ -14,7 +14,7 @@ def main():
                          passwd=MY_PASS, db=MY_DB)
     cur = db.cursor()
 
-    cur.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC")
+    cur.execute("SELECT * FROM states WHERE upper(name) LIKE 'N%' ORDER BY id ASC")
     rows = cur.fetchall()
     for row in rows:
         print(row)
