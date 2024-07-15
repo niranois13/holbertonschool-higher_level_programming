@@ -18,10 +18,8 @@ def generate_invitations(template_content, attendees):
         return
 
     if not template_content:
-        print("Template is empty, no output files generated.")
         return("Template is empty, no output files generated.")
     if not attendees:
-        print("No data provided, no output files generated.")
         return("No data provided, no output files generated.")
 
     if not isinstance(template_content, str):
