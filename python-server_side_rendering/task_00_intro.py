@@ -30,17 +30,14 @@ def generate_invitations(template_content, attendees):
     for iterate, attendee in enumerate(attendees, start=1):
         try:
             output = template_content.format(
-                name=attendee.get("name", "N/A"),
-                event_title=attendee.get("event_title", "N/A"),
-                event_date=attendee.get("event_date", "N/A"),
-                event_location=attendee.get("event_location", "N/A")
+                name=attendee.get("name" or "N/A"),
+                event_title=attendee.get("event_title" or "N/A"),
+                event_date=attendee.get("event_date" or "N/A"),
+                event_location=attendee.get("event_location" or "N/A")
             )
 
             with open(f"output_{iterate}.txt", "w") as f:
                 f.write(output)
-            if os.path.exists(output_filename):
-                print(f"File {output_filename} already exists. Skipping...")
-                continue
 
         except KeyError as e:
             return f("Missing key in attendee date: {e}")
