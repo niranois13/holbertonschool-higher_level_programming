@@ -10,6 +10,8 @@ def generate_invitations(template_content, attendees):
                       to fill the template with.
     Returns - The function exits with a message on ERRORS.
     """
+
+
     if not template_content:
         return("Template is empty, no output files generated.")
     if not attendees:
