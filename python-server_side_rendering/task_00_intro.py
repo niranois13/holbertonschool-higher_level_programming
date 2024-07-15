@@ -21,10 +21,11 @@ def generate_invitations(template_content, attendees):
     if not attendees:
         return ("No data provided, no output files generated.")
 
-    if not isinstance(template_content, str) or template_content is None:
+    if not isinstance(template_content, str):
         return ("Template is not a string.")
-    if not isinstance(attendees, list) or attendees is None:
-        return ("Attendees is not a list of dictionnaries.")
+    if not isinstance(attendees, list) or not \
+        all(isinstance(attendee, dict) for attendee in attendees):
+        return "Attendees is not a list of dictionaries."
 
     for iterate, attendee in enumerate(attendees, start=1):
         try:
