@@ -18,9 +18,9 @@ def generate_invitations(template_content, attendees):
     if not attendees:
         return ("No data provided, no output files generated.")
 
-    if not isinstance(template_content, str):
+    if not isinstance(template_content, str) or template_content is None:
         return ("Template is not a string.")
-    if not isinstance(attendees, list):
+    if not isinstance(attendees, list) or attendees is None:
         return ("Attendees is not a list of dictionnaries.")
 
     for iterate, attendee in enumerate(attendees, start=1):
