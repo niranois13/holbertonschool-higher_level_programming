@@ -44,5 +44,8 @@ def generate_invitations(template_content, attendees):
 
         except KeyError as e:
             return f"Missing key in attendee date: {e}"
+        except Exception as e:
+            print(f"An error occurred while generating invitation for attendee {iterate}: {e}")
+            continue
 
     return "Invitation successfully generated."
