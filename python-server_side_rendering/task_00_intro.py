@@ -10,8 +10,11 @@ def generate_invitations(template_content, attendees):
                       to fill the template with.
     Returns - The function exits with a message on ERRORS.
     """
-    with open("template.txt", "r") as template_file:
-        template_content = template_file.read()
+    try:
+        with open("template.txt", "r") as template_file:
+            template_content = template_file.read()
+    except FileNotFoundError:
+        return "Template file not found."
 
     if not template_content:
         return ("Template is empty, no output files generated.")
@@ -31,6 +34,7 @@ def generate_invitations(template_content, attendees):
                 event_date=attendee.get("event_date", "N/A"),
                 event_location=attendee.get("event_location", "N/A")
             )
+
             with open(f"output_{iterate}.txt", "w") as f:
                 f.write(output)
         except KeyError as e:
