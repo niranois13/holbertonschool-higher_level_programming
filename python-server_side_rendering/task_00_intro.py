@@ -14,18 +14,23 @@ def generate_invitations(template_content, attendees):
         with open("template.txt", "r") as template_file:
             template_content = template_file.read()
     except FileNotFoundError:
-        return "Template file not found."
+        print("Template file not found.")
+        return
 
     if not template_content:
-        return ("Template is empty, no output files generated.")
+        print("Template is empty, no output files generated.")
+        return
     if not attendees:
-        return ("No data provided, no output files generated.")
+        print("No data provided, no output files generated.")
+        return
 
     if not isinstance(template_content, str):
-        return ("Template is not a string.")
+        print("Template is not a string.")
+        return
     if not isinstance(attendees, list) or not \
         all(isinstance(attendee, dict) for attendee in attendees):
-        return "Attendees is not a list of dictionaries."
+        print("Attendees is not a list of dictionaries.")
+        return
 
     for iterate, attendee in enumerate(attendees, start=1):
         try:
