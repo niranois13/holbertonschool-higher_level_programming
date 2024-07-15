@@ -38,6 +38,10 @@ def generate_invitations(template_content, attendees):
 
             with open(f"output_{iterate}.txt", "w") as f:
                 f.write(output)
+            if os.path.exists(output_filename):
+                print(f"File {output_filename} already exists. Skipping...")
+                continue
+
         except KeyError as e:
             return f("Missing key in attendee date: {e}")
 
