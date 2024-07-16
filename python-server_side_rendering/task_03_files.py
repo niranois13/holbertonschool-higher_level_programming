@@ -38,7 +38,7 @@ def product_display():
         with open(product_json_file_path, 'r', encoding='UTF-8') as f:
             data = json.load(f)
             if isinstance(data, list):
-                products = data['products']
+                products = data
             else:
                 products = data.get('products', dict)
 
