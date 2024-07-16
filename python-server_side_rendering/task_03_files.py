@@ -30,6 +30,7 @@ def items():
 def product_display():
     source = request.args.get('source')
     product_id = request.args.get('id')
+    products = []
     error_message = None
 
     if source == 'json':
