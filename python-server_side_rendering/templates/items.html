@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>List of Items</title>
+</head>
+<body>
+    {% include 'header.html' %}
+    <main>
+        <h1>JSON items.</h1>
+        <p>This is a list of JSON items.</p>
+        <ul>
+            {% if items %}
+                {% for item in items %}
+                    <li>{{ item }}</li>
+                {% endfor %}
+            {% else %}
+                <li> No items found </li>
+            {% endif %}    
+        </ul>
+    </main>
+    {% include 'footer.html' %}
+</body>
+</html>
