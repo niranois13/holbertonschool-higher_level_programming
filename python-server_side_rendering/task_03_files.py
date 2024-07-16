@@ -37,7 +37,10 @@ def product_display():
         product_json_file_path = os.path.join(os.path.dirname(__file__), 'products.json')
         with open(product_json_file_path, 'r', encoding='UTF-8') as f:
             data = json.load(f)
-            products = data['products']
+            if isinstance(data, list):
+                products = data['products']
+            else:
+                products = data.get('products', dict)
 
     elif source == 'csv':
         product_csv_file_path = os.path.join(os.path.dirname(__file__), 'products.csv')
