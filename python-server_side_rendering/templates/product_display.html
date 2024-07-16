@@ -8,19 +8,23 @@
     {% include 'header.html' %}
     <main>
         <h1>Products</h1>
-        <ul>
-            {% if products %}
-                {% for product in products %}
-                    <li>
-                        ID: {{ product.id }} <br>
-                        Name: {{ product.name }} <br>
-                        Category: {{ product.category }} <br>
-                        Price: {{ product.price }} <br>
-                    </li>
-                {% endfor %}
+            {% if error_message %}
+                <p>{{ error_message }}</p>
             {% else %}
-                <li>No products found</li>
-            {% end if %}
+                <ul>
+                    {% if products %}
+                        {% for product in products %}
+                            <li>
+                                ID: {{ product.id }} <br>
+                                Name: {{ product.name }} <br>
+                                Category: {{ product.category }} <br>
+                                Price: {{ product.price }} <br>
+                            </li>
+                        {% endfor %}
+                    {% else %}
+                        <li>No products found</li>
+                    {% end if %}
+                </ul>
         </ul>
     </main>
     {% include 'footer.html' %}

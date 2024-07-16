@@ -26,11 +26,12 @@ def items():
     items = data.get('items', [])
     return render_template('items.html', items=items)
 
-@app.route('/product_display')
+@app.route('/products')
 def product_display(source, id):
     source = request.args.get('source')
     product_id = request.args.get('id')
     products = []
+    error_message = None
 
     if source == 'json':
         product_json_file_path = os.path.join(os.path.dirname(__file__), 'products.json')
@@ -44,10 +45,13 @@ def product_display(source, id):
             reader = csv.DictReader(f)
             products = list(reader)
 
+    else:
+        error_message = "Wrong source"
+
     if product_id:
         products = [product for product in products if str(product.get('id')) == str(product_id)]
 
-    return render_template('products.json', products=products)
+    return render_template('products.json', products=products, error_message=error_message)
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
