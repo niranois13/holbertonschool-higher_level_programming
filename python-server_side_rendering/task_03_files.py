@@ -27,7 +27,7 @@ def items():
     return render_template('items.html', items=items)
 
 @app.route('/products')
-def product_display(source, id):
+def product_display():
     source = request.args.get('source')
     product_id = request.args.get('id')
     products = []
@@ -48,10 +48,10 @@ def product_display(source, id):
     else:
         error_message = "Wrong source"
 
-    if product_id:
+    if product_id and not error_message:
         products = [product for product in products if str(product.get('id')) == str(product_id)]
 
-    return render_template('products.json', products=products, error_message=error_message)
+    return render_template('product_display.html', products=products, error_message=error_message)
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
