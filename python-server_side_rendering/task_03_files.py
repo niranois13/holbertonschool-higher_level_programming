@@ -50,10 +50,8 @@ def product_display():
 
     if product_id and not error_message:
         products = [product for product in products if str(product.get('id')) == str(product_id)]
-        return render_template('product_display.html', products=products), 200
 
-    if error_message:
-        return render_template('product_display.html', products=products, error_message=error_message), 400
+    return render_template('product_display.html', products=products, error_message=error_message)
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
