@@ -69,9 +69,6 @@ def product_display():
     else:
         error_message = "Wrong source"
 
-    if product_id and not error_message:
-        products = [product for product in products if str(product.get('id')) == str(product_id)]
-
     return render_template('products.html', products=products, error_message=error_message)
 
 if __name__ == '__main__':
