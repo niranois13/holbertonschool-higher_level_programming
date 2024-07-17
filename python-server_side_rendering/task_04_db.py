@@ -35,12 +35,7 @@ def product_display():
     error_message = None
 
     if source == 'db':
-        product_db_file_path = os.path.join(os.path.dirname(__file__), 'products.db')
-        if not os.path.exists(product_db_file_path):
-            error_message = 'Database not found'
-
-        else:
-            conn = sqlite3.connect(product_db_file_path)
+            conn = sqlite3.connect('products.db')
             cursor = conn.cursor()
             if product_id:
                 cursor.execute('SELECT * FROM products WHERE id = ?', (product_id,))
@@ -68,6 +63,9 @@ def product_display():
 
     else:
         error_message = "Wrong source"
+
+    if product_id and not error_message:
+        products = [product for product in products if str(product.get('id')) == str(product_id)]
 
     return render_template('products.html', products=products, error_message=error_message)
 
