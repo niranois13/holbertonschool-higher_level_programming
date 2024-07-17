@@ -37,15 +37,15 @@ def product_display():
     if source == 'db':
         product_db_file_path = os.path.join(os.path.dirname(__file__), 'products.db')
         if not os.path.exists(product_db_file_path):
-            error_message = 'Database not found', 404
+            error_message = 'Database not found'
         else:
             conn = sqlite3.connect(product_db_file_path)
             cursor = conn.cursor()
             if product_id:
-                cursor.execute('SELECT * FROM Products WHERE id = ?', (product_id,))
+                cursor.execute('SELECT * FROM products WHERE id = ?', (product_id,))
                 products = cursor.fetchall()
             else:
-                cursor.execute('SELECT * FROM Products')
+                cursor.execute('SELECT * FROM products')
                 products = cursor.fetchall()
             conn.close()
 
@@ -67,7 +67,7 @@ def product_display():
             products = list(reader)
 
     else:
-        error_message = "Wrong source", 309
+        error_message = "Wrong source"
 
     if product_id and not error_message:
         products = [product for product in products if str(product.get('id')) == str(product_id)]
