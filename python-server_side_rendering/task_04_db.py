@@ -27,6 +27,19 @@ def items():
     items = data.get('items', [])
     return render_template('items.html', items=items)
 
+
+def read_sqlite_database():
+    product_db_file_path = os.path.join(os.path.dirname(__file__), 'products.db')
+    conn = sqlite3.connect(product_db_file_path)
+    cursor = conn.cursor()
+    cursor.execute("SELECT id, name, category, price FROM Products")
+    rows = cursor.fetchall()
+    conn.close()
+    products = [{'id': row[0], 'name': row[1], 'category': row[2], \
+                'price': row[3]} for row in rows]
+    return products
+
+
 @app.route('/products')
 def product_display():
     source = request.args.get('source')
@@ -35,24 +48,10 @@ def product_display():
     error_message = None
 
     if source == 'db':
-        product_db_file_path = os.path.join(os.path.dirname(__file__), 'products.db')
-        if not os.path.exists(product_db_file_path):
-            error_message = 'Database not found'
-
-        else:
-            try:
-                conn = sqlite3.connect(product_db_file_path)
-                cursor = conn.cursor()
-                if product_id:
-                    cursor.execute('SELECT * FROM products WHERE id = ?', (product_id,))
-                    products = cursor.fetchall()
-                else:
-                    cursor.execute('SELECT * FROM products')
-                    products = cursor.fetchall()
-                conn.close()
-                products = [{'id': row[0], 'name': row[1], 'category': row[2], 'price': row[3]} for row in products]
-            except sqlite3.Error as e:
-                return render_template('products.html', error=f'Database error: {str(e)}')
+        try:
+            products = read_sqlite_database()
+        except sqlite3.Error as e:
+            return render_template('products.html', error=f'Database error: {str(e)}')
 
     elif source == 'json':
         product_json_file_path = os.path.join(os.path.dirname(__file__), 'products.json')
