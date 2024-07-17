@@ -34,7 +34,7 @@ def product_display():
     products = []
     error_message = None
 
-    if source == 'db':
+    if source == 'sql':
             conn = sqlite3.connect('products.db')
             cursor = conn.cursor()
             if product_id:
