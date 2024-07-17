@@ -38,18 +38,21 @@ def product_display():
         product_db_file_path = os.path.join(os.path.dirname(__file__), 'products.db')
         if not os.path.exists(product_db_file_path):
             error_message = 'Database not found'
-        else:
-            conn = sqlite3.connect(product_db_file_path)
-            cursor = conn.cursor()
-            if product_id:
-                cursor.execute('SELECT * FROM products WHERE id = ?', (product_id,))
-                products = cursor.fetchall()
-            else:
-                cursor.execute('SELECT * FROM products')
-                products = cursor.fetchall()
-            conn.close()
 
-            products = [{'id': row[0], 'name': row[1], 'category': row[2], 'price': row[3]} for row in products]
+        else:
+            try:
+                conn = sqlite3.connect(product_db_file_path)
+                cursor = conn.cursor()
+                if product_id:
+                    cursor.execute('SELECT * FROM products WHERE id = ?', (product_id,))
+                    products = cursor.fetchall()
+                else:
+                    cursor.execute('SELECT * FROM products')
+                    products = cursor.fetchall()
+                conn.close()
+                products = [{'id': row[0], 'name': row[1], 'category': row[2], 'price': row[3]} for row in products]
+            except sqlite3.Error as e:
+                return render_template('products.html', error=f'Database error: {str(e)}')
 
     elif source == 'json':
         product_json_file_path = os.path.join(os.path.dirname(__file__), 'products.json')
